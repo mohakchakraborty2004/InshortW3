@@ -16,7 +16,7 @@ export default function SplineSceneBasic() {
         {/* Left content */}
         <div className="flex p-8 relative z-10 flex-col justify-center items-center ml-5">
           <h1 className="text-4xl md:text-[4rem] p-8 font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-            BlockBrief
+            Shortify
           </h1>
           <p className="mt-4 text-neutral-500 max-w-lg items-center text-center">
           Stay informed with bite-sized, blockchain-powered news on the go. Unfiltered, unstoppable, and always up to date.
