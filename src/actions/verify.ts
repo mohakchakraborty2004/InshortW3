@@ -1,22 +1,35 @@
-"use server"
-// introduced for better type but dont know how to do it
-interface res {
-    confidence_score : number
-    matching_details : string
-    discripancies : string
+"use server";
+
+export interface VerificationResult {
+  confidence_score: number;
+  isVerified: boolean;
+  matching_details: string[];
+  discrepancies: string[];
 }
 
-export default async function Verify(title: string, description: string, source_url: string){
-    // verification logic with title and string.
-    const data = {
-        headline : title,
+export default async function Verify(title: string, description: string, source_url: string) {
+  try {
+    const response = await fetch("http://localhost:8000/verify-news", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        headline: title,
         description,
         source_url
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const response : any =  await axios.post("Enter-Samyak's-Url-HEre", data);
 
-    const confidence_score : number = (response.confidence_score) * 100
-
-    // 90 is place holder value here , return the confidence_score here.
-    return 90;
+    const data: VerificationResult = await response.json();
+    return Math.round(data.confidence_score * 100);
+    
+  } catch (error) {
+    console.error("Verification failed:", error);
+    return null; // Or handle error differently
+  }
 }
