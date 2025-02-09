@@ -9,7 +9,7 @@ export interface VerificationResult {
 
 export default async function Verify(title: string, description: string, source_url: string) {
   try {
-    const response = await fetch("https://news-verifier-agent.onrender.com/verify-news", {
+    const response = await fetch("https://autonome.alt.technology/news-x-dycrul/verify-news", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
