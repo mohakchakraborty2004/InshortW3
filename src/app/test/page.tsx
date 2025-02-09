@@ -9,6 +9,8 @@ const fetchNews = async () => {
     const response = await axios.get(
       "https://newsapi.org/v2/top-headlines?country=us&apiKey=4c9ba383e3a1409986d66ab6c855cdf5"
     );
+
+    console.log("response", response.data.articles[0])
     const news = response.data.articles || [];
     return news
       .filter((n) => n.title && n.description) // Ensure valid articles
