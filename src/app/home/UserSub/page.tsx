@@ -4,14 +4,14 @@ import axios from "axios"
 // add a db url in prisma
 // no agent needed here
 const userNews = async() => {
-  const response = await prisma.news.findMany();
+  // const response = await prisma.news.findMany();
 
-  return response.map((e: any) => ({
-    id : e.id,
-    title : e.title, 
-    description : e.description,
-    price : e.mint_price
-  }))
+  // return response.map((e: any) => ({
+  //   id : e.id,
+  //   title : e.title, 
+  //   description : e.description,
+  //   price : e.mint_price
+  // }))
 }
 
 
@@ -23,7 +23,7 @@ const news = await userNews();
     return <div>
         User Posted news here
 
-        <ul className="grid grid-cols-2">
+        {/* <ul className="grid grid-cols-2">
          {news.map((t : any, index : any) => (
              <li key={index} >
                 <div className="m-5 text-2xl bg-violet-500 p-7 rounded-2xl text-white">
@@ -33,6 +33,6 @@ const news = await userNews();
            </li>
          ))
          }
-       </ul>
+       </ul> */}
     </div>
 }

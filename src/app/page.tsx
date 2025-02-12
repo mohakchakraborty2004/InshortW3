@@ -43,12 +43,13 @@ export default function SplineSceneBasic() {
         </div>
 
         {/* Right content */}
-        <div className="flex-1 relative">
+        {/* uncomment this after finishing, this is causing issue in loading */}
+        {/* <div className="flex-1 relative">
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
           />
-        </div>
+        </div> */}
       </div>
     </Card>
   );
